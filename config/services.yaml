@@ -1,0 +1,2 @@
+translator:
+  paths: ['%kernel.project_dir%/translations', '%kernel.project_dir%/vendor/ivovalchev/edit-this-page/translations']
