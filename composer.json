@@ -24,6 +24,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "extra": {
-    "entrypoint": "IvoValchev\\EditThisPageExtension\\Extension"
+    "entrypoint": "IvoValchev\\EditThisPageExtension\\Extension",
+    "screenshots": [
+      "screenshots/button.png"
+    ]
   }
 }
