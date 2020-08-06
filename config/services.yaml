@@ -1,2 +1,3 @@
-translator:
-  paths: ['%kernel.project_dir%/vendor/ivovalchev/edit-this-page/translations']
+framework:
+  translator:
+    paths: ['%kernel.project_dir%/vendor/ivovalchev/edit-this-page/translations']
