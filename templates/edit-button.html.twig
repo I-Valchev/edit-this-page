@@ -1,6 +1,6 @@
 {% if content is not null and content|edit_link %}
 <form action="{{ content|edit_link }}" class="bolt-edit-this-page">
-    <button type="submit">{{ 'edit'|trans }} {{ content.definition.singular_name|default(content.definition.singular_slug) }}</button>
+    <button type="submit">{{ 'edit-this-page.edit'|trans }} {{ content.definition.singular_name|default(content.definition.singular_slug) }}</button>
 </form>
 <style>
 .bolt-edit-this-page {
