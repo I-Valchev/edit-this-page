@@ -1,13 +1,28 @@
 {% if content is not null and content|edit_link %}
-<form action="{{ content|edit_link }}" class="bolt-edit-this-page">
+<form action="{{ content|edit_link }}" class="bolt-edit-this-page position-{{ config.position }}">
     <button type="submit">{{ 'edit-this-page.edit'|trans }} {{ content.definition.singular_name|default(content.definition.singular_slug) }}</button>
 </form>
 <style>
 .bolt-edit-this-page {
     position: fixed;
+    z-index: 1000;
+}
+
+.bolt-edit-this-page.position-top-left {
+    top: 20px;
+    left: 20px;
+}
+.bolt-edit-this-page.position-top-right {
+    top: 20px;
+    right: 20px;
+}
+.bolt-edit-this-page.position-bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+.bolt-edit-this-page.position-bottom-right {
     bottom: 20px;
     right: 20px;
-    z-index: 1000;
 }
 </style>
 {% endif %}
