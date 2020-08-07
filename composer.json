@@ -1,6 +1,6 @@
 {
   "name": "ivovalchev/edit-this-page",
-  "description": "Bolt 4 extension to add Edit page button for Editors on frontend pages",
+  "description": "✏️ Bolt 4 extension to add Edit page button for Editors on frontend pages",
   "type": "bolt-extension",
   "license": "MIT",
   "authors": [

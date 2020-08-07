@@ -25,8 +25,9 @@ class EditPageWidget extends BaseWidget implements TwigAwareInterface, Stopwatch
     public function run(array $params = []): ?string
     {
         $content = isset($this->getTwig()->getGlobals()['record']) ? $this->getTwig()->getGlobals()['record'] : null;
+        $config = $this->getExtension()->getConfig();
 
-        return parent::run(['content' => $content]);
+        return parent::run(['content' => $content, 'config' => $config]);
     }
 
 }
