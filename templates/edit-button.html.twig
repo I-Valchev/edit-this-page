@@ -1,28 +1,123 @@
 {% if content is not null and content|edit_link %}
-<form action="{{ content|edit_link }}" class="bolt-edit-this-page position-{{ config.position }}">
-    <button type="submit">{{ 'edit-this-page.edit'|trans }} {{ content.definition.singular_name|default(content.definition.singular_slug) }}</button>
-</form>
+<div class="position-{{ config.position }}" id="bolt-edit-this">
+    <a href="{{ content|edit_link }}">
+        {{ 'edit-this-page.edit'|trans }} {{ content.definition.singular_name|default(content.definition.singular_slug) }}
+    </a>
+</div>
+<div class="position-{{ config.position }}" id="bolt-edit-info">
+    <dl>
+        <dt>Title:</dt>
+        <dd>{{ record|title }}</dd>
+        <dt>Slug:</dt>
+        <dd><code>{{ record.slug }}</code></dd>
+        <dt>ContentType:</dt>
+        <dd>{{ content.definition.name }}(<code>{{ content.definition.slug }}</code>), № {{ content.id }}</dd>
+    <dl>
+</div>
 <style>
-.bolt-edit-this-page {
+#bolt-edit-this, #bolt-edit-info {
     position: fixed;
     z-index: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    border: 1.5px solid #CCC !important;
+    border-radius: 7px !important;
+    background-color: #EEE !important;
+    padding: 8px !important;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3) !important;
+    font-size: 12px !important;
 }
 
-.bolt-edit-this-page.position-top-left {
+#bolt-edit-info {
+    width: 310px;
+    display: none;
+    background-color: #FFF !important;
+}
+
+#bolt-edit-this a, #bolt-edit-info a {
+    font-weight: bold !important;
+    color: #002299 !important;
+}
+
+#bolt-edit-this a:hover, #bolt-edit-info a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#bolt-edit-info code {
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    color: #555;
+    background-color: #EEE;
+    font-size: 11px
+}
+
+#bolt-edit-info dl {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0
+}
+#bolt-edit-info dt {
+    float: left;
+    width: 28%;
+    padding: 0;
+    margin: 0;
+}
+#bolt-edit-info dd {
+    float: left;
+    width: 72%;
+    padding: 0;
+    margin: 0;
+}
+}
+
+#bolt-edit-this.position-top-left {
     top: 20px;
     left: 20px;
 }
-.bolt-edit-this-page.position-top-right {
+#bolt-edit-this.position-top-right {
     top: 20px;
     right: 20px;
 }
-.bolt-edit-this-page.position-bottom-left {
-    bottom: 20px;
+#bolt-edit-this.position-bottom-left {
+    bottom: 40px;
     left: 20px;
 }
-.bolt-edit-this-page.position-bottom-right {
-    bottom: 20px;
+#bolt-edit-this.position-bottom-right {
+    bottom: 40px;
     right: 20px;
 }
+
+#bolt-edit-info.position-top-left {
+    top: 50px;
+    left: 20px;
+}
+#bolt-edit-info.position-top-right {
+    top: 50px;
+    right: 20px;
+}
+#bolt-edit-info.position-bottom-left {
+    bottom: 75px;
+    left: 20px;
+}
+#bolt-edit-info.position-bottom-right {
+    bottom: 75px;
+    right: 20px;
+}
+
 </style>
+
+<script>
+var button = document.getElementById('bolt-edit-this');
+button.addEventListener('mouseenter', function( event ) {
+   var info =  document.getElementById('bolt-edit-info');
+   info.style.display = 'block';
+   console.log('in');
+});
+button.addEventListener('mouseleave', function( event ) {
+    console.log('out');
+    var info =  document.getElementById('bolt-edit-info');
+    info.style.display = 'none';
+});
+</script>
+
 {% endif %}
