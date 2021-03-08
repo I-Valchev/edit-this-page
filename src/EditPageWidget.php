@@ -18,7 +18,7 @@ class EditPageWidget extends BaseWidget implements TwigAwareInterface, Stopwatch
     protected $name = 'Edit This Page Widget';
     protected $target = Target::END_OF_BODY;
     protected $priority = 300;
-    protected $template = '@edit-this-page-widget/edit-button.html.twig';
+    protected $template = 'edit-button.html.twig';
     protected $zone = RequestZone::FRONTEND;
     protected $cacheDuration = 0;
 
