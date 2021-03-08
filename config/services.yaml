@@ -3,4 +3,4 @@ framework:
     paths: ['%kernel.project_dir%/vendor/ivovalchev/edit-this-page/translations']
 
 twig:
-  paths: ['%kernel.project_dir%/templates/bundles/edit-this-page', '%kernel.project_dir%/vendor/ivovalchev/edit-this-page/templates']
+  paths: ['%kernel.project_dir%/vendor/ivovalchev/edit-this-page/templates']
